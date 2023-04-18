@@ -10,20 +10,21 @@ const [a, b] = require("fs")
   .split(" ")
   .map((i) => parseInt(i)); //2. 구조분해 할당 사용 3. 문자를 숫자로 변경
 
+console.log(b);
 // let a, b, rest; // 변수선언
 // [a, b] = [10, 20];
 // console.log(a);
 
-let i = a;
-let j = b;
+// let i = a;
+// let j = b;
 
-while (i % j !== 0) {
-  let n = i % j;
-  if (n !== 0) {
-    i = j;
-    j = n;
-  }
-} //조건이 ture일경우 계속 반복
+// while (i % j !== 0) {
+//   let n = i % j;
+//   if (n !== 0) {
+//     i = j;
+//     j = n;
+//   }
+// } //조건이 ture일경우 계속 반복
 
-console.log(j); // 최대공약수
-console.log((a * b) / j); //최소공배수
+// console.log(j); // 최대공약수
+// console.log((a * b) / j); //최소공배수
