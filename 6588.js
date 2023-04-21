@@ -35,4 +35,87 @@
 // }
 
 // 1. 소수를 구한다
-// 2. 소수중 해당값에 해당하는 숫자를 구한다?a
+// 2. 소수중 해당값에 해당하는 숫자를 구한다?
+// 3. 반복문을 돌려 input값이 나오게 한다.
+// const input = require("fs")
+//   .readFileSync("6588.txt")
+//   .toString()
+//   .trim()
+//   .split("\n")
+//   .map((i) => parseInt(i));
+
+// function solution(n) {
+//   let arr = [];
+//   // 1은 소수가 아니고, 2부터 소수가 될 수 있으므로, 2부터 구하고자 하는 값까지의 배열을 만든다.
+//   for (let i = 2; i <= n; i++) {
+//     arr[i] = i;
+//   }
+//   // 2부터 시작해서 2배수 이상의 숫자를 모두 지우되, 이미 지워진 숫자는 건너 뛴다.
+//   for (let i = 2; i <= n; i++) {
+//     for (let j = i + i; j <= n; j += i) {
+//       if (arr[j] === 0) {
+//         continue;
+//       }
+//       arr[j] = 0;
+//     }
+//   }
+//   return arr.filter((item) => item !== 0);
+// }
+
+// let loop = solution(input);
+
+// function answer() {
+//   for (nums of loop) {
+//     for (let i = 0; i < nums.length; i++) {
+//       console.log("여긴 지나가나 ");
+//       for (let j = 0; j < nums.length; j++) {
+//         if (nums[i] + nums[j] === input) {
+//           console.log(nums[i], nums[j]);
+//           return `input = nums[i]+nums[j]`;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// console.log(answer());
+
+// 먼저 1, 000, 000까지의 자연수 중에서 소수를 모두 구한다.
+// 그 다음 주어진 수들을 가장 작은 소수부터 큰 소수까지 순서대로 두 값의 차가 소수가 되는 가장 작은 소수를 찾는다.
+// 그러한 소수가 존재하면 n = a + b 형태로 출력하고, 존재하지 않으면 골드바흐의 추측이 틀렸다는 문자열을 반환하면 된다.
+
+const input = require("fs")
+  .readFileSync("6588.txt")
+  .toString()
+  .trim()
+  .split("\n")
+  .map((i) => parseInt(i));
+
+const primeNums = [];
+const nums = Array(1_000_000 + 1).fill(true);
+nums[0] = false;
+nums[1] = false;
+
+for (let i = 2; i <= Math.sqrt(1_000_000); i++) {
+  if (!nums[i]) {
+    continue;
+  }
+  primeNums.push(i);
+  for (let j = i * 2; j <= 1_000_000; j += i) {
+    nums[j] = false;
+  }
+}
+
+console.log(
+  input
+    .slice(0, -1)
+    .map((num) => {
+      const low = primeNums.find((primeNum) => nums[num - primeNum]);
+      if (low) {
+        const high = num - low;
+        return `${num} = ${low} + ${high}`;
+      }
+      return "Goldbach's conjecture is wrong.";
+    })
+    .join("\n")
+);
