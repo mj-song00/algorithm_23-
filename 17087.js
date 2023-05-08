@@ -41,7 +41,7 @@ const input = require("fs")
 // }
 
 const [N, S] = input[0];
-const brother = input[1].map((v) => Math.abs(S - v));
+const brother = input[1].map((v) => Math.abs(S - v)); //abs() : 정수의 절대값을 구하는 함수
 
 if (N == 1) {
   console.log(brother[0]);
