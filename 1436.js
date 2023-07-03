@@ -1,4 +1,4 @@
-const input = require("fs").readFileSync("1436.txt").toString().trim();
+let input = require("fs").readFileSync("1436.txt").toString();
 
 let a = 666;
 
