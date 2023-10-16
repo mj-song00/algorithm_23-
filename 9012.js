@@ -1,32 +1,12 @@
-// const input = require("fs")
-//   .readFileSync("9012.txt")
-//   .toString()
-//   .trim()
-//   .split("\n");
+const input = require("fs")
+  .readFileSync("9012.txt")
+  .toString()
+  .trim()
+  .split("\n");
 
 // 입력받은 문자열을 확인한다.
 // '('와 ')'의 갯수를 확인한다.
 // '(' 와 ')'의 갯수가 일차하지 않으면 No를 return 한다.
-
-//for (e of VPS) console.log(e);
-
-// function answer() {
-//     arr1 = [];
-
-//   let result = ture;
-//   for (let i = 1; i < input.length; i++) {
-//     for (let j = 1; j < input[i].length; j++)
-//       input[i][j] == "(" ? arr1.push("(") : arr1.pop(")");
-
-//     console.log(arr1.length);
-//     if (arr1.length === 0) {
-//       return "Yes";
-//     } else {
-//       return "No";
-//     }
-//   }
-// }
-// console.log(answer(input[0]));
 
 let inputs = require("fs")
   .readFileSync("/dev/stdin")

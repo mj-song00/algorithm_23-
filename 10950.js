@@ -3,11 +3,11 @@ const input = require("fs")
   .toString()
   .trim()
   .split("\n");
-//  .map(Number);
 
 const num = Number(input[0]);
 
 for (let i = 1; i <= num; i++) {
+  console.log(input[i].split(" "));
   let score = input[i].split(" ");
   console.log(Number(score[0]) + Number(score[1]));
 }
