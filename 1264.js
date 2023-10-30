@@ -1,17 +1,15 @@
-const { count } = require("console");
-
-const input = require("fs")
-  .readFileSync("input.txt")
-  .toString()
-  .trim()
-  .split("\n");
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 function countVowels(sentence) {
   const vowels = "aeiouAEIOU";
   let count = 0;
   for (let i = 0; i < sentence.length; i++) {
+    //입력값의 길이까지
     if (vowels.includes(sentence[i])) {
-      count++;
+      //vowels가 senence[i]값을 포함한다면
+      count++; // count 증가
     }
   }
   return count;
