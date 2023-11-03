@@ -6,3 +6,8 @@ const input = require("fs")
   .split("\n");
 
 const [L, A, B, C, D] = input;
+
+const math = Math.ceil(B / D);
+const mother = Math.ceil(A / C);
+
+console.log(L - Math.max(math, mother));
